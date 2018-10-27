@@ -77,14 +77,20 @@ class CanvasViewController: UIViewController {
         if sender.state == .began
         {
             //create a new image view that contains the same image as the view that was panned on
-            var imageView = sender.view as! UIImageView //imageView now refers to the face that you panned on.
+            let imageView = sender.view as! UIImageView //imageView now refers to the face that you panned on.
             newlyCreatedFace = UIImageView(image: imageView.image) //Create a new image view that has the same image as the one you're currently panning.
             view.addSubview(newlyCreatedFace) //Add the new face to the main view.
             newlyCreatedFace.center = imageView.center //Initialize the position of the new face.
             newlyCreatedFace.center.y += trayView.frame.origin.y //Since the original face is in the tray, but the new face is in the main view, you have to offset the coordinates.
             
             //Now that the new face has been created, we want to actually pan it's position
-            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center //
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceOnCanvas(sender:)))
+            newlyCreatedFace.isUserInteractionEnabled = true
+            //panGestureRecognizer.delegate = self
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
+
         }
         else if sender.state == .changed
         {
@@ -95,7 +101,19 @@ class CanvasViewController: UIViewController {
         else if sender.state == .ended
         {
             print("ended state hm")
-            
+        }
+    }
+    
+    @objc func didPanFaceOnCanvas(sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
+        
+        if sender.state == .began {
+            newlyCreatedFace = sender.view as! UIImageView // to get the face that we panned on.
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
+        } else if sender.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        } else if sender.state == .ended {
+            print("Gesture ended")
         }
     }
     

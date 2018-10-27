@@ -9,10 +9,10 @@ Time spent: **3** hours spent in total
 The following **required** user stories are complete:
 
 - [x] Add and Configure View Elements (+1pt)
-- [x ] User can use a pan gesture to move the position of the tray (+1pt)
+- [x] User can use a pan gesture to move the position of the tray (+1pt)
 - [x] The tray will continue to the up or down position based on the direction the user was last panning (+1pt)
 - [x] User can use a pan gesture to drag faces from the image tray to the canvas (+1pt)
-- [ ] User can pan faces on the canvas (+1pt)
+- [x] User can pan faces on the canvas (+1pt)
 
 The following **stretch** user stories are implemented:
 
@@ -27,7 +27,7 @@ The following **stretch** user stories are implemented:
 - [ ] App tray features custom images (different from the supplied image assets) (+1pt)
 - [ ] User can choose between different canvas backgrounds (+1pt)
 - [ ] User can can swipe horizontally in the image tray to access more images (+1pt)
-- User can snap a photo to create...
+- [ ] User can snap a photo to create...
 - [ ] a custom canvas background (1pt)
 - [ ] custom images in the image tray (1pt)
 - [ ] User can double tab the canvas to "reset" the Canvas (1pt)
