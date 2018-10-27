@@ -17,7 +17,7 @@ The following **required** user stories are complete:
 The following **stretch** user stories are implemented:
 
 - [ ] Tray bounces when returning to it's up or down positions (+1pt)
-- [ ] User sees as new face scale up and back down to simulate a "picking up and dropping" appearance (+1pt)
+- [x] User sees as new face scale up and back down to simulate a "picking up and dropping" appearance (+1pt)
 - [ ] User can use a pinch gesture to scale faces up or down (+1pt)
 - [ ] User can use a rotation gesture to rotate the position of faces on the canvas (+1pt)
 - [ ] User sees the tray arrow adjust to point up or down in relation to the position of the tray (+1pt)
@@ -36,14 +36,15 @@ The following **stretch** user stories are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1. applying bouncing/ spring effect
+1. applying spring effect animations
 2. custom canvas background
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+https://imgur.com/0ouxdqm
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<a href="https://imgur.com/0ouxdqm"><img src="https://imgur.com/0ouxdqm.gif" title="canvasDemo"/></a>
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 

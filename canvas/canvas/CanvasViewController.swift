@@ -86,9 +86,12 @@ class CanvasViewController: UIViewController {
             //Now that the new face has been created, we want to actually pan it's position
             newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
             
+            UIView.animate(withDuration: 0.5) {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 2, y: 2) //twice as big
+            }
+            
             let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanFaceOnCanvas(sender:)))
             newlyCreatedFace.isUserInteractionEnabled = true
-            //panGestureRecognizer.delegate = self
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
 
         }
@@ -100,6 +103,9 @@ class CanvasViewController: UIViewController {
         }
         else if sender.state == .ended
         {
+            UIView.animate(withDuration: 0.5) {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1) //back to normal
+            }
             print("ended state hm")
         }
     }
@@ -109,10 +115,16 @@ class CanvasViewController: UIViewController {
         
         if sender.state == .began {
             newlyCreatedFace = sender.view as! UIImageView // to get the face that we panned on.
-            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later.
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center // so we can offset by translation later
+            UIView.animate(withDuration: 0.5) {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 2, y: 2) //twice as big
+            }
         } else if sender.state == .changed {
             newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
         } else if sender.state == .ended {
+            UIView.animate(withDuration: 0.5) {
+                self.newlyCreatedFace.transform = CGAffineTransform(scaleX: 1, y: 1) //back to normal
+            }
             print("Gesture ended")
         }
     }
